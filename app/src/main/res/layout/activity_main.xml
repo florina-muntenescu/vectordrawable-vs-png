@@ -6,8 +6,7 @@
     <fmuntenescu.vectordrawablevspng.MeasurableImageView
         android:id="@+id/measurable_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/draw_duration_text" />
+        android:layout_height="match_parent" />
 
     <RadioGroup
         android:id="@+id/drawable_choice"
