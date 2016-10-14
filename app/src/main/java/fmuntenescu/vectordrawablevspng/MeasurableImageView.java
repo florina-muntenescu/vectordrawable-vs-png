@@ -3,7 +3,6 @@ package fmuntenescu.vectordrawablevspng;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -12,7 +11,6 @@ import android.widget.ImageView;
  */
 public class MeasurableImageView extends ImageView {
 
-    @Nullable
     private ViewRedrawnListener mViewRedrawnListener;
 
     public MeasurableImageView(final Context context) {
@@ -29,8 +27,6 @@ public class MeasurableImageView extends ImageView {
     }
 
     public void setViewRedrawnListener(@NonNull final ViewRedrawnListener viewRedrawnListener) {
-        assert viewRedrawnListener != null;
-
         mViewRedrawnListener = viewRedrawnListener;
     }
 
@@ -48,11 +44,11 @@ public class MeasurableImageView extends ImageView {
         notifyDraw(startTime, endTime);
     }
 
-    private void notifyDraw(final long startTime, final long endTime) {
-        double duration = ((double) endTime - (double) startTime) / 1000000;
+    private void notifyDraw(final double startTimeNano, final double endTimeNano) {
+        double durationMiliseconds = (endTimeNano - startTimeNano) / 1000000;
 
         if (mViewRedrawnListener != null) {
-            mViewRedrawnListener.onDrawFinished(duration);
+            mViewRedrawnListener.onDrawFinished(durationMiliseconds);
         }
     }
 }
