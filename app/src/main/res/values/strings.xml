@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">VectorDrawable VS PNG</string>
+    <string name="app_name">VectorDrawables</string>
+
+    <string name="vector_drawable">Vector Drawable</string>
+    <string name="png">PNG</string>
+    <string name="duration">Rendering duration: %.3f</string>
 </resources>
